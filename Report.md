@@ -42,8 +42,8 @@ WEIGHT_DECAY = 0
 ##### Noise's starting sigma parameter
 NOISE_SIGMA = 1     
 ##### Noise's starting theta parameter
+NOISE_THETA = 1 
 ##### Noise's decay rate that is applied to both: sigma and theta.
-NOISE_THETA = 1         
 DECAY_RATE = 0.9999     
 
 ## Result
