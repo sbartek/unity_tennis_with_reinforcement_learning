@@ -57,10 +57,10 @@ class Actor(ModuleWithCheckpoints):
         x = torch.unsqueeze(state,0) if state.dim() == 1 else state
         #x = self.bn0(x)
         x = F.relu(self.fc1(x))
-        x = self.dropout1(x)
-        x = self.bn1(x)
+        #x = self.dropout1(x)
+        #x = self.bn1(x)
         x = F.relu(self.fc2(x))
-        x = self.dropout2(x)
+        #x = self.dropout2(x)
         return F.tanh(self.fc3(x))
 
 class Critic(ModuleWithCheckpoints):
@@ -99,9 +99,9 @@ class Critic(ModuleWithCheckpoints):
         xs = torch.unsqueeze(state,0) if state.dim() == 1 else state
         #xs = self.bn0(xs)
         xs = F.relu(self.fcs1(xs))
-        xs = self.dropout1(xs)
-        xs = self.bn1(xs)
+        #xs = self.dropout1(xs)
+        #xs = self.bn1(xs)
         x = torch.cat((xs, action), dim=1)
         x = F.relu(self.fc2(x))
-        x = self.dropout2(x)
+        #x = self.dropout2(x)
         return self.fc3(x)
