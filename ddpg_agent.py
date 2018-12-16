@@ -16,7 +16,9 @@ TAU = 1e-2              # for soft update of target parameters
 LR_ACTOR = 1e-4         # learning rate of the actor 
 LR_CRITIC = 1e-3        # learning rate of the critic
 WEIGHT_DECAY = 0        # L2 weight decay
-NOISE_SIGMA = 0.2       # Noise's sigma parameter
+NOISE_SIGMA = 1         # Noise's sigma parameter
+NOISE_THETA = 1
+DECAY_RATE = 0.9999
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -164,8 +166,12 @@ class Agent():
 class OUNoise:
     """Ornstein-Uhlenbeck process."""
 
-    def __init__(self, size, seed, mu=0., theta=0.15, sigma=NOISE_SIGMA):
+    def __init__(
+        self,
+        size, seed, mu=0.,
+            theta=NOISE_THETA, sigma=NOISE_SIGMA, decay_rate=DECAY_RATE):
         """Initialize parameters and noise process."""
+        self.decay_rate = decay_rate
         self.mu = mu * np.ones(size)
         self.theta = theta
         self.sigma = sigma
@@ -181,8 +187,14 @@ class OUNoise:
         x = self.state
         dx = self.theta * (self.mu - x) + self.sigma * np.array([random.random() for i in range(len(x))])
         self.state = x + dx
+        self.decay()
         return self.state
 
+    def decay(self):
+        self.theta *= self.decay_rate
+        self.sigma *= self.decay_rate
+        
+        
 class ReplayBuffer:
     """Fixed-size buffer to store experience tuples."""
 
