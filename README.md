@@ -24,10 +24,18 @@ The environment is considered solved, when the average (over 100 episodes) of th
 
 ### Getting Started
 
-In order to install packages need run
+
+#### Installing Unity ML-Agents
+
+The most important part (and also tricky) is installing [Unity ML-Agents](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Installation.md). Please visit this page and follow install instructions.
+
+#### Other packages
+In order to install all other packages run
 ```
 pip install -r requirements.txt
 ```
+
+#### Getting Tennis environment if not on Mac
 
 This repository contain enviroment for Mac. If you need another, download the environment from one of the links below.  You need only select the environment that matches your operating system:
     - Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P3/Tennis/Tennis_Linux.zip)
