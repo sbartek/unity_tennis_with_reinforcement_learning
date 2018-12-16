@@ -50,9 +50,10 @@ DECAY_RATE = 0.9999
 
 Evirionment was solved in 608 episodes (gettig more then 0.5 points on averege among 100 episodes).
 
-![Alt text](https://github.com/sbartek/unity_tennis_with_reinforcement_learning/blob/master/imgs/scores1.png?raw=true "Optional Title")
 
-One can observe trained agent running: `CTennisPlayTrainedAgents.ipynb` notebook and compare it with random agent `TennisPlayRandomAgents.ipynb`.
+![Alt text](https://github.com/sbartek/unity_tennis_with_reinforcement_learning/blob/master/score1.png?raw=true "Optional Title")
+
+One can observe trained agent running: `TennisPlayTrainedAgents.ipynb` notebook and compare it with random agent `TennisPlayRandomAgents.ipynb`.
 
 ## Future improvements
 
